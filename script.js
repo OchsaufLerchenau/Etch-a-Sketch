@@ -24,15 +24,8 @@ function makeArray () {
     }
 }
 
-function setColor() {
-    let randomColor = Math.floor(Math.random()*16777215).toString(16);
-    alert(rCol)
-}
-
-function hover() {
-    for (i = 0; i < elements.length; i++) {
-        
-        //elements[i].style.setProperty('--rgb', rgb)   
+function hoverColors() {  
+    for (i = 0; i < elements.length; i++) {  
         elements[i].addEventListener('mouseenter', function (e) { 
             const randomColor = Math.floor(Math.random()*16777215).toString(16);
             e.target.style.borderRadius = '35%';
@@ -42,15 +35,38 @@ function hover() {
     }   
 }
 
+/*
+function mouseOverCount() {
+    for (i = 0; i < 16; i++) {
+        mouseOverAmount--;
+    }
+}
+*/
+
+function hoverGrays() {
+    for (i = 0; i < elements.length; i++) {
+          
+        elements[i].addEventListener('mouseenter', function (e) { 
+            var mouseOverAmount = 0;
+            mouseOverAmount++;
+            e.target.style.borderRadius = '35%';
+            e.target.classList.add('element');
+            //mouseOverAmount = mouseOverAmount - 8;
+            var grayScale = '#' + mouseOverAmount.toString(16)
+            + mouseOverAmount.toString(16) + mouseOverAmount.toString(16);
+            console.log(grayScale);
+        });
+    }
+    
+}
 
 var elements = []
 const elem = document.getElementsByTagName('p');
 const body = document.querySelector('body')
 const container = document.getElementById('container');
 window.onload = promptForGridSize()
-
 window.onload = createGrid();
 window.onload = makeArray();
-window.onload = hover()
+//window.onload = hover()
 
 
