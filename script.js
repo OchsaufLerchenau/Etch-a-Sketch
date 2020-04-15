@@ -7,10 +7,10 @@ function promptForGridSize() {
 function createGrid() {
     container.style.setProperty('--grid-size', gridSize);
     for (i = 0; i < gridSize*gridSize; i++) {
-        const div = document.createElement('div');
-        div.setAttribute('id', i);
-        div.classList.add('element');
-        container.appendChild(div);
+        const p = document.createElement('p');
+        p.setAttribute('id', i);
+        
+        container.appendChild(p);
     }  
 }
 
@@ -26,17 +26,20 @@ function createRandomRGB () {
 }
 
 function hover() {
-    for (i = 0; i < elements.length; i++) {       
+    for (i = 0; i < elements.length; i++) {
+            
         elements[i].addEventListener('mouseenter', function (e) {
-            e.target.style.setProperty('background-color', 'black');
-            e.target.style.borderRadius = '50%'
+            createRandomRGB()
+            e.target.style.borderRadius = '50%';
+            e.target.classList.add('element');
+            e.target.setProperty('--rgb', rgb);
         });       
     }   
 }
 
 
 var elements = []
-const elem = document.getElementsByClassName('element');
+const elem = document.getElementsByTagName('p');
 const body = document.querySelector('body')
 const container = document.getElementById('container');
 window.onload = promptForGridSize()

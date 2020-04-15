@@ -1,5 +1,5 @@
 :root {
-    --rgb: 0;
+    --rgb: black;
     --opacity: 0;
 }
 
@@ -27,3 +27,7 @@ button {
     border-radius: 10px;
 }
 
+.element {
+    background-color: var(--rgb);
+
+}
