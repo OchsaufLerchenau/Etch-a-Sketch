@@ -1,9 +1,8 @@
-
-
-const button = document.createElement('button');
-let gridSize = prompt('What size grid would you like?');
-    
-
+var gridSize;
+var rgb;
+function promptForGridSize() {
+    gridSize = prompt('What size grid would you like?');  
+}
 
 function createGrid() {
     container.style.setProperty('--grid-size', gridSize);
@@ -12,8 +11,7 @@ function createGrid() {
         div.setAttribute('id', i);
         div.classList.add('element');
         container.appendChild(div);
-    }
-    
+    }  
 }
 
 function makeArray () {
@@ -22,24 +20,29 @@ function makeArray () {
     }
 }
 
-function hover() {
-    for (i = 0; i < elements.length; i++) {
-        elements[i].addEventListener('mouseenter', function (e) {
-            e.target.style.background = 'black';
-            e.target.style.borderRadius = '50%'
-        });
-        
-    }   
+function createRandomRGB () {
+    rgb = '\'rgb(' + Math.floor(Math.random()*256) + ', '
+    + Math.floor(Math.random()*256) + ', ' + Math.floor(Math.random()*256) +')\'';
 }
 
+function hover() {
+    for (i = 0; i < elements.length; i++) {       
+        elements[i].addEventListener('mouseenter', function (e) {
+            e.target.style.setProperty('background-color', 'black');
+            e.target.style.borderRadius = '50%'
+        });       
+    }   
+}
 
 
 var elements = []
 const elem = document.getElementsByClassName('element');
 const body = document.querySelector('body')
 const container = document.getElementById('container');
-body.insertBefore(button, container);
+window.onload = promptForGridSize()
+
 window.onload = createGrid();
 window.onload = makeArray();
 window.onload = hover()
+
 
