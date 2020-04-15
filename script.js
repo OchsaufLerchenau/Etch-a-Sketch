@@ -1,7 +1,11 @@
 var gridSize;
 var rgb;
 function promptForGridSize() {
-    gridSize = prompt('What size grid would you like?');  
+    gridSize = prompt('What size grid would you like? Enter a whole number, 2-80');
+    if (gridSize > 80 || gridSize < 2 || isNaN(gridSize)) {
+        alert('Wrong imput, please try again!');
+        location.reload();
+    }
 }
 
 function createGrid() {
@@ -20,19 +24,20 @@ function makeArray () {
     }
 }
 
-function createRandomRGB () {
-    rgb = '\'rgb(' + Math.floor(Math.random()*256) + ', '
-    + Math.floor(Math.random()*256) + ', ' + Math.floor(Math.random()*256) +')\'';
+function setColor() {
+    let randomColor = Math.floor(Math.random()*16777215).toString(16);
+    alert(rCol)
 }
 
 function hover() {
     for (i = 0; i < elements.length; i++) {
-            
-        elements[i].addEventListener('mouseenter', function (e) {
-            createRandomRGB()
-            e.target.style.borderRadius = '50%';
+        
+        //elements[i].style.setProperty('--rgb', rgb)   
+        elements[i].addEventListener('mouseenter', function (e) { 
+            const randomColor = Math.floor(Math.random()*16777215).toString(16);
+            e.target.style.borderRadius = '35%';
             e.target.classList.add('element');
-            e.target.setProperty('--rgb', rgb);
+            e.target.style.backgroundColor = '#' + randomColor;
         });       
     }   
 }
