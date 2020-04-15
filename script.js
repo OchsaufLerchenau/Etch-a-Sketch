@@ -24,6 +24,8 @@ function makeArray () {
     }
 }
 
+
+
 function hoverColors() {  
     for (i = 0; i < elements.length; i++) {  
         elements[i].addEventListener('mouseenter', function (e) { 
@@ -31,7 +33,8 @@ function hoverColors() {
             e.target.style.borderRadius = '35%';
             e.target.classList.add('element');
             e.target.style.backgroundColor = '#' + randomColor;
-        });       
+            console.log(randomColor)
+        });     
     }   
 }
 
@@ -43,21 +46,32 @@ function mouseOverCount() {
 }
 */
 
+function toHexConverter (int) {
+    var hexa = ['0','1','2','3','4','5','6','7','8','9','A','B','C','D','E','F'];
+    if (int < 10) {
+        return int;
+    } else {
+        return hexa[int];
+    }
+}
+
+var mouseOverAmount = 0;
 function hoverGrays() {
     for (i = 0; i < elements.length; i++) {
-          
+        elements[i].classList.add('12');
         elements[i].addEventListener('mouseenter', function (e) { 
-            var mouseOverAmount = 0;
-            mouseOverAmount++;
+           
             e.target.style.borderRadius = '35%';
-            e.target.classList.add('element');
-            //mouseOverAmount = mouseOverAmount - 8;
-            var grayScale = '#' + mouseOverAmount.toString(16)
-            + mouseOverAmount.toString(16) + mouseOverAmount.toString(16);
-            console.log(grayScale);
+            var counter = e.target.getAttribute('class');
+            hex = toHexConverter(counter);
+            if (counter >= 0) {
+                var grayScale = '#' + hex + hex + hex;
+                e.target.style.backgroundColor = grayScale;
+
+                e.target.setAttribute('class', counter-3)   
+            }
         });
     }
-    
 }
 
 var elements = []
