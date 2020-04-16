@@ -39,6 +39,7 @@ h1 {
     width: 120px;
     margin: auto;
     border: 3px solid black;
+    font-family: 'Bree Serif', serif;
 }
 
 #reset:hover {
