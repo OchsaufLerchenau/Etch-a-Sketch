@@ -1,5 +1,6 @@
 var gridSize;
 var rgb;
+var mouseOverAmount = 0;
 function promptForGridSize() {
     gridSize = prompt('What size grid would you like? Enter a whole number, 2-80');
     if (gridSize > 80 || gridSize < 2 || isNaN(gridSize)) {
@@ -24,8 +25,6 @@ function makeArray () {
     }
 }
 
-
-
 function hoverColors() {  
     for (i = 0; i < elements.length; i++) {  
         elements[i].addEventListener('mouseenter', function (e) { 
@@ -38,14 +37,6 @@ function hoverColors() {
     }   
 }
 
-/*
-function mouseOverCount() {
-    for (i = 0; i < 16; i++) {
-        mouseOverAmount--;
-    }
-}
-*/
-
 function toHexConverter (int) {
     var hexa = ['0','1','2','3','4','5','6','7','8','9','A','B','C','D','E','F'];
     if (int < 10) {
@@ -55,10 +46,10 @@ function toHexConverter (int) {
     }
 }
 
-var mouseOverAmount = 0;
+
 function hoverGrays() {
     for (i = 0; i < elements.length; i++) {
-        elements[i].classList.add('12');
+        elements[i].classList.add('13');
         elements[i].addEventListener('mouseenter', function (e) { 
            
             e.target.style.borderRadius = '35%';
@@ -68,7 +59,7 @@ function hoverGrays() {
                 var grayScale = '#' + hex + hex + hex;
                 e.target.style.backgroundColor = grayScale;
 
-                e.target.setAttribute('class', counter-3)   
+                e.target.setAttribute('class', counter-2)   
             }
         });
     }

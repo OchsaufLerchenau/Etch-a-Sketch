@@ -1,9 +1,11 @@
-:root {
-    --rgb: black;
-}
 
 p {
     margin: 0px;
+}
+
+#outer {
+    display: flex;
+    justify-content: center;
 }
 
 #container {
@@ -17,27 +19,40 @@ p {
 
 #info {
     display: grid;
+    justify-content: center;
+}
+
+h1 {
+    font-family: 'Pacifico', cursive;
+}
+
+#reset {
+    border-radius: 47%;
+    background-color: rgb(228, 0, 0);
+    font-size: 35px;
+    color: black;
+    width: 120px;
+    margin: auto;
 }
 
 #buttons {
     display: flex;
     grid-template-columns: 1fr 1fr 1fr;
-    justify-content: space-evenly;
-    width: 700px;
+    justify-content: center;
     margin-bottom: 40px;
     margin-top: 30px;
 }
 
-button {
+.choose {
     width: 100px;
-    height: 70px;
+    height: 80px;
     background-color: rgb(200, 200 , 200); 
     font-weight: bold;
-    color: rgb(122, 62, 22);
+    font-size: 24px;
+    color: black;
     border-radius: 10px;
+    margin-left: 40px;
+    margin-right: 40px;
     justify-content: space-evenly;
-}
-
-.element {
-    background-color: #fff;
+    font-family: 'Annie Use Your Telescope', cursive;
 }

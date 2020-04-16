@@ -4,21 +4,23 @@
   <title>Etch-a-Sketch</title>
   <meta charset="UTF-8"/>
   <link rel = "stylesheet" type = "text/css" href = "style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Annie+Use+Your+Telescope&family=Bree+Serif&family=Pacifico&display=swap" rel="stylesheet"> 
 </head>
 <body>
   
   <div id="info">
     <h1>Welcome to the Etch-a-Sketch!</h1>
-    <h3>please choose your version</h3>
-    <button id="reset" onclick = "location.reload()">Reset the Etch-a-Sketch</button>
+    <button id="reset" onclick = "location.reload()">Reset</button>
   </div>
 
   <div id="buttons">
-    <button id="btn1" onclick = "hoverColors()">Click here for random colours</button>
-    <button id="btn2" onclick = "hoverGrays()">Click here for 16 shades of grey</button>
+    <button id="btn1" class="choose" onclick = "hoverColors()">Random colors</button>
+    <button id="btn2" class="choose" onclick = "hoverGrays()">Shades of gray</button>
   </div>
 
-  <div id="container"></div>
+  <div id="outer">
+   <div id="container"></div>
+  </div>
 
   <script src="script.js"></script>
 </body>
