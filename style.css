@@ -3,6 +3,10 @@ p {
     margin: 0px;
 }
 
+body {
+    background-color: rgb(213, 234, 253);
+}
+
 #outer {
     display: flex;
     justify-content: center;
@@ -15,6 +19,7 @@ p {
     height: 700px;
     grid-template-columns: repeat(var(--grid-size), 1fr);
     border-radius: 10px;
+    background-color: white;
 }
 
 #info {
@@ -28,11 +33,18 @@ h1 {
 
 #reset {
     border-radius: 47%;
-    background-color: rgb(228, 0, 0);
+    background-color: rgb(220, 220, 220);
     font-size: 35px;
     color: black;
     width: 120px;
     margin: auto;
+    border: 3px solid black;
+}
+
+#reset:hover {
+    scale: 1.1;
+    transition: all 0.3s;
+    background-color: rgb(228, 0, 0);
 }
 
 #buttons {
@@ -46,7 +58,7 @@ h1 {
 .choose {
     width: 100px;
     height: 80px;
-    background-color: rgb(200, 200 , 200); 
+    background-color: rgb(220, 220 , 220); 
     font-weight: bold;
     font-size: 24px;
     color: black;
@@ -55,4 +67,16 @@ h1 {
     margin-right: 40px;
     justify-content: space-evenly;
     font-family: 'Annie Use Your Telescope', cursive;
+    border: 2px solid black
+}
+
+#btn2:hover {
+    scale: 1.1;
+    transition: all 0.3s;
+    background-color: rgb(150, 150, 150);
+}
+
+#btn1:hover {
+    scale: 1.1;
+    transition: all 0.3s;
 }
