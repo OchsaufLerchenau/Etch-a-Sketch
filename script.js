@@ -45,14 +45,13 @@ function buttonRandomColor() {
     });
 }
 
-function hoverColors() { 
+function hoverColors() {
     for (i = 0; i < elements.length; i++) {  
         elements[i].addEventListener('mouseenter', function (e) { 
             const randomColor = Math.floor(Math.random()*16777215).toString(16);
             e.target.style.borderRadius = '35%';
             e.target.classList.add('element');
             e.target.style.backgroundColor = '#' + randomColor;
-            console.log(randomColor)
         });     
     }   
 }
@@ -81,6 +80,3 @@ window.onload = promptForGridSize()
 window.onload = createGrid();
 window.onload = makeArray();
 window.onload = buttonRandomColor();
-
-
-
