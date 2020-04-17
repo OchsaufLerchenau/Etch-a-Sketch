@@ -4,7 +4,7 @@ var mouseOverAmount = 0;
 function promptForGridSize() {
     gridSize = prompt('What size grid would you like? Enter a whole number, 2-80');
     if (gridSize > 80 || gridSize < 2 || isNaN(gridSize)) {
-        alert('Wrong imput, please try again!');
+        alert('Wrong input, please try again!');
         location.reload();
     }
 }
