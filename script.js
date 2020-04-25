@@ -1,6 +1,24 @@
 var gridSize;
 var rgb;
 var mouseOverAmount = 0;
+
+var chgBckToColor = function (e) { 
+    const randomColor = Math.floor(Math.random()*16777215).toString(16);
+    e.target.style.borderRadius = '35%';
+    e.target.style.backgroundColor = '#' + randomColor;
+}
+
+var chgBkckToGrays = function (e) {
+    e.target.style.borderRadius = '35%';
+    var counter = e.target.getAttribute('class');
+    hex = toHexConverter(counter);
+    if (counter >= 0) {
+        var grayScale = '#' + hex + hex + hex;
+        e.target.style.backgroundColor = grayScale;
+        e.target.setAttribute('class', counter-2); 
+    }
+}
+
 function promptForGridSize() {
     gridSize = prompt('What size grid would you like? Enter a whole number, 2-80');
     if (gridSize > 80 || gridSize < 2 || isNaN(gridSize)) {
@@ -46,29 +64,17 @@ function buttonRandomColor() {
 }
 
 function hoverColors() {
-    for (i = 0; i < elements.length; i++) {  
-        elements[i].addEventListener('mouseenter', function (e) { 
-            const randomColor = Math.floor(Math.random()*16777215).toString(16);
-            e.target.style.borderRadius = '35%';
-            e.target.classList.add('element');
-            e.target.style.backgroundColor = '#' + randomColor;
-        });     
+    for (i = 0; i < elements.length; i++) {
+        elements[i].removeEventListener('mouseenter', chgBkckToGrays); 
+        elements[i].addEventListener('mouseenter', chgBckToColor);     
     }   
 }
 
 function hoverGrays() {
     for (i = 0; i < elements.length; i++) {
+        elements[i].removeEventListener('mouseenter', chgBckToColor);
         elements[i].classList.add('13');
-        elements[i].addEventListener('mouseenter', function (e) { 
-            e.target.style.borderRadius = '35%';
-            var counter = e.target.getAttribute('class');
-            hex = toHexConverter(counter);
-            if (counter >= 0) {
-                var grayScale = '#' + hex + hex + hex;
-                e.target.style.backgroundColor = grayScale;
-                e.target.setAttribute('class', counter-2)   
-            }
-        });
+        elements[i].addEventListener('mouseenter', chgBkckToGrays);
     }
 }
 
