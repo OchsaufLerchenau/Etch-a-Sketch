@@ -65,7 +65,8 @@ function buttonRandomColor() {
 
 function hoverColors() {
     for (i = 0; i < elements.length; i++) {
-        elements[i].removeEventListener('mouseenter', chgBkckToGrays); 
+        elements[i].removeEventListener('mouseenter', chgBkckToGrays);
+        elements[i].className = ''; 
         elements[i].addEventListener('mouseenter', chgBckToColor);     
     }   
 }
